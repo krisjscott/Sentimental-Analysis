@@ -1,5 +1,3 @@
----
-
 ```markdown
 # Twitter Sentiment Analysis using NLTK
 
@@ -176,17 +174,9 @@ tweets/
 
 ---
 
-**Author:** Krish J. Scott
+**Author:** Krish Kumar
 **Library Used:** [NLTK](https://www.nltk.org/)
 
 ```
 
 ---
-
-✅ **Now it will render perfectly on GitHub:**
-- All code blocks are properly fenced.  
-- Images load inline with the right syntax.  
-- Sections have consistent spacing and formatting.
-
-Would you like me to add a short project tagline under the title (like *“A visual exploration of tweet sentiment using Python & NLTK”*)? It gives a nice finishing touch to your README’s top section.
-```
