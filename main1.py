@@ -2,7 +2,58 @@ import numpy as np
 import pandas as pd 
 
 import matplotlib.pyplot as plt 
-from utils import confidence_ellipse 
+from matplotlib.patches import Ellipse
+import matplotlib.transforms as transforms
+
+def confidence_ellipse(x, y, ax, n_std=3.0, facecolor='none', **kwargs):
+    """
+    Create a plot of the covariance confidence ellipse of *x* and *y*.
+
+    Parameters
+    ----------
+    x, y : array-like, shape (n, )
+        Input data.
+    ax : matplotlib.axes.Axes
+        The axis object to draw the ellipse into.
+    n_std : float
+        The number of standard deviations to determine the ellipse's radii.
+    facecolor : str
+        The facecolor of the ellipse (default 'none').
+    **kwargs : dict
+        Additional keyword arguments passed to Ellipse patch.
+    """
+    x = np.asarray(x)
+    y = np.asarray(y)
+    if x.size != y.size:
+        raise ValueError("x and y must be the same size")
+
+    cov = np.cov(x, y)
+    # Handle cases with no variation
+    if cov.shape != (2, 2):
+        return None
+
+    # Eigenvalues and eigenvectors
+    vals, vecs = np.linalg.eigh(cov)
+    # Sort by largest eigenvalue
+    order = vals.argsort()[::-1]
+    vals = vals[order]
+    vecs = vecs[:, order]
+
+    # Calculate the angle of rotation in degrees
+    angle = np.degrees(np.arctan2(vecs[1, 0], vecs[0, 0]))
+
+    # Width and height are "full" widths, so multiply by 2*n_std*sqrt(eigenval)
+    width, height = 2 * n_std * np.sqrt(vals)
+
+    # Mean of the data
+    mean_x = np.mean(x)
+    mean_y = np.mean(y)
+
+    # Create and add the ellipse patch
+    ellipse = Ellipse((mean_x, mean_y), width=width, height=height, angle=angle,
+                      facecolor=facecolor, **kwargs)
+    ax.add_patch(ellipse)
+    return ellipse
 
 data = pd.read_csv('./data/bayes_features.csv'); 
 fig, ax = plt.subplots(figsize = (8, 8)) 
