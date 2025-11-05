@@ -186,7 +186,5 @@ tweets/
 * The charts use logarithmic scales to make differences clearer.
 * You can adjust the `keys` list in the script to analyze specific words.
 
----
-
 **Author:** Krish Kumar
 **Library Used:** [NLTK](https://www.nltk.org/)
