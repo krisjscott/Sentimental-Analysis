@@ -1,14 +1,3 @@
-That’s a solid README, Krish — it’s clear, structured, and gives a good walkthrough of the entire project.
-
-A few quick tweaks will make it display perfectly on GitHub:
-
-1. **Fix image syntax:** GitHub Markdown doesn’t allow `<img>` tags inside backticks or parentheses.
-   You can either use pure Markdown `![]()` or HTML `<img>` syntax — but not a mix of both.
-2. **Remove extra backticks:** Some code fences (```bash, ````, etc.) are mismatched.
-3. **Add spacing around sections for cleaner rendering.**
-
-Here’s your cleaned and GitHub-ready version:
-
 ---
 
 ```markdown
@@ -48,7 +37,8 @@ Number of tweets: 8000
 
 ### 2. Sentiment Distribution Pie Chart  
 
-<img width="500" height="500" alt="Sentiment Pie Chart" src="https://github.com/user-attachments/assets/9eb8ef04-6c45-4525-b0d4-48ea4c2b6a6c" />
+<img width="500" height="500" alt="figure 1" src="https://github.com/user-attachments/assets/13002b2d-a2fc-4aa9-bc5f-b0a6578ba52c" />
+
 
 A pie chart showing:
 - Positive tweets: 50%  
@@ -88,7 +78,8 @@ Love this! 😍
 
 ```
 
-<img width="862" height="42" alt="Tweet Cleaning" src="https://github.com/user-attachments/assets/f207201a-454f-4644-b2eb-47f9d4bede5e" />
+<img width="862" height="42" alt="Screenshot 2025-11-05 111626" src="https://github.com/user-attachments/assets/67782fe3-1fb1-4945-a632-d5021024aa94" />
+
 
 ---
 
@@ -122,7 +113,8 @@ This dictionary stores how often each word appears in positive vs. negative twee
 
 ### 7. Word Sentiment Scatter Plot  
 
-<img width="800" height="800" alt="Word Sentiment Plot" src="https://github.com/user-attachments/assets/6c5c8417-c14f-42dc-9979-8af5fb5fadae" />
+<img width="800" height="800" alt="scatter plot" src="https://github.com/user-attachments/assets/47b63a5f-6451-461b-bf1a-92051976a2c9" />
+
 
 A log-scale scatter plot comparing positive and negative word counts:
 - Words like *happy* and *love* cluster near the **positive** side  
