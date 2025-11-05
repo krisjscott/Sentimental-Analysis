@@ -1,3 +1,7 @@
+
+---
+
+```markdown
 # Twitter Sentiment Analysis using NLTK
 
 This project demonstrates how to analyze and visualize the sentiment of tweets using **NLTK (Natural Language Toolkit)**.  
@@ -22,6 +26,7 @@ The workflow includes:
 ## 📊 Expected Outputs
 
 ### 1. Dataset Summary
+
 Displays the total number of tweets used for training.
 
 ```
@@ -34,7 +39,7 @@ Number of tweets: 8000
 
 ### 2. Sentiment Distribution Pie Chart  
 
-<img width="500" height="500" alt="figure 1" src="https://github.com/user-attachments/assets/13002b2d-a2fc-4aa9-bc5f-b0a6578ba52c" />
+<img width="500" height="500" alt="figure 1" src="https://github.com/user-attachments/assets/c6e42961-dfaf-414e-abf4-79c5f619331b" />
 
 
 A pie chart showing:
@@ -59,11 +64,37 @@ I’m so done with today 😒                  ← negative (red)
 
 ### 4. Tweet Cleaning Process  
 
-Demonstrates how a tweet is preprocessed.
+Demonstrates how a tweet is preprocessed step by step.
+
+**Before:**
+```
+
+[http://t.co/36Wla3TkWC](http://t.co/36Wla3TkWC) thanks for following!! Enjoy my tweets! :) lets be friends! Ambre Suzan 268 4
 
 ```
 
-<img width="862" height="42" alt="Screenshot 2025-11-05 111626" src="https://github.com/user-attachments/assets/67782fe3-1fb1-4945-a632-d5021024aa94" />
+**After Cleaning (URLs removed):**
+```
+
+thanks for following!! Enjoy my tweets! :) lets be friends! Ambre Suzan 268 4
+
+```
+
+**After Tokenization:**
+```
+
+['thanks', 'for', 'following', '!', '!', 'enjoy', 'my', 'tweets', '!', ':)', 'lets', 'be', 'friends', '!', 'ambre', 'suzan', '268', '4']
+
+```
+
+**After Removing Stopwords & Punctuation:**
+```
+
+['thanks', 'following', 'enjoy', 'tweets', 'lets', 'friends', 'ambre', 'suzan', '268', '4']
+
+```
+
+<img width="853" height="39" alt="Screenshot 2025-11-05 112713" src="https://github.com/user-attachments/assets/713e68f9-6687-4227-b3be-06bb78641ae0" />
 
 
 ---
@@ -98,7 +129,7 @@ This dictionary stores how often each word appears in positive vs. negative twee
 
 ### 7. Word Sentiment Scatter Plot  
 
-<img width="800" height="800" alt="scatter plot" src="https://github.com/user-attachments/assets/47b63a5f-6451-461b-bf1a-92051976a2c9" />
+<img width="800" height="800" alt="scatter plot" src="https://github.com/user-attachments/assets/968e043b-8a16-43b4-88a5-e36ae1c8caa4" />
 
 
 A log-scale scatter plot comparing positive and negative word counts:
@@ -161,7 +192,10 @@ tweets/
 
 ---
 
-**Author:** Krish Kumar
+**Author:** Krish J. Scott
 **Library Used:** [NLTK](https://www.nltk.org/)
 
+```
+
+---
 ```
