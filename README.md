@@ -33,7 +33,8 @@ Number of tweets: 8000
 
 ### 2. Sentiment Distribution Pie Chart  
  
-`![Sentiment Pie Chart]("C:\Users\thekr\OneDrive\Documents\program\python\tweets\logistic regression outputs\figure 1.png")`
+`![Sentiment Pie Chart](<img width="500" height="500" alt="figure 1" src="https://github.com/user-attachments/assets/9eb8ef04-6c45-4525-b0d4-48ea4c2b6a6c" />
+"C:\Users\thekr\OneDrive\Documents\program\python\tweets\logistic regression outputs\figure 1.png")`
 
 A pie chart showing:
 - Positive tweets: 50%  
@@ -72,7 +73,8 @@ Love this! 😍
 ```
 
 *(Add image or console screenshot here)*  
-`![Tweet Cleaning]("C:\Users\thekr\Pictures\Screenshots\Screenshot 2025-11-05 111626.png")`
+`![Tweet Cleaning](<img width="862" height="42" alt="Screenshot 2025-11-05 111626" src="https://github.com/user-attachments/assets/f207201a-454f-4644-b2eb-47f9d4bede5e" />
+")`
 
 ---
 
@@ -103,7 +105,8 @@ This dictionary stores how often each word appears in positive vs. negative twee
 
 ### 7. Word Sentiment Scatter Plot  
 *(Add scatter plot here)*  
-`![Word Sentiment Plot]("C:\Users\thekr\OneDrive\Documents\program\python\tweets\logistic regression outputs\scatter plot.png")`
+`![Word Sentiment Plot](<img width="800" height="800" alt="scatter plot" src="https://github.com/user-attachments/assets/6c5c8417-c14f-42dc-9979-8af5fb5fadae" />
+)`
 
 A log-scale scatter plot that compares positive and negative word counts:
 - Words like *happy* and *love* cluster near the **positive** side  
