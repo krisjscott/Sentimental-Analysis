@@ -1,5 +1,3 @@
----
-```markdown
 # Twitter Sentiment Analysis using NLTK
 
 This project demonstrates how to analyze and visualize the sentiment of tweets using **NLTK (Natural Language Toolkit)**.  
@@ -179,5 +177,3 @@ tweets/
 **Library Used:** [NLTK](https://www.nltk.org/)
 
 ```
-
----
