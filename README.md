@@ -1,8 +1,4 @@
-
----
-
-```markdown
-# Twitter Sentiment Analysis using NLTK
+# 🐦 Twitter Sentiment Analysis using NLTK
 
 This project demonstrates how to analyze and visualize the sentiment of tweets using **NLTK (Natural Language Toolkit)**.  
 It loads a built-in Twitter dataset, cleans and tokenizes text, removes noise, and visualizes word frequencies and sentiment distribution.
@@ -192,10 +188,7 @@ tweets/
 
 ---
 
-**Author:** Krish J. Scott
+**Author:** Krish Kumar
 **Library Used:** [NLTK](https://www.nltk.org/)
 
-```
-
----
 ```
