@@ -190,5 +190,3 @@ tweets/
 
 **Author:** Krish Kumar
 **Library Used:** [NLTK](https://www.nltk.org/)
-
-```
