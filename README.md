@@ -169,13 +169,14 @@ pip install nltk numpy matplotlib
 
 ```
 tweets/
-│
-├── main.py
-├── README.md
-└── images/
-    ├── pie_chart.png
-    ├── tweet_cleaning.png
-    └── word_sentiment.png
+├── NLTK
+    ├── main.py
+    └── images/
+          ├── pie_chart.png
+          ├── tweet_cleaning.png
+          └── word_sentiment.png
+
+
 ```
 
 ---
