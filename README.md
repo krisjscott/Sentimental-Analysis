@@ -1,4 +1,5 @@
 ```markdown
+
 # Twitter Sentiment Analysis using NLTK
 
 This project demonstrates how to analyze and visualize the sentiment of tweets using **NLTK (Natural Language Toolkit)**.  
@@ -32,7 +33,7 @@ Number of tweets: 8000
 
 ### 2. Sentiment Distribution Pie Chart  
  
-`![Sentiment Pie Chart](images/pie_chart.png)`
+`![Sentiment Pie Chart]("C:\Users\thekr\OneDrive\Documents\program\python\tweets\logistic regression outputs\figure 1.png")`
 
 A pie chart showing:
 - Positive tweets: 50%  
@@ -71,7 +72,7 @@ Love this! 😍
 ```
 
 *(Add image or console screenshot here)*  
-`![Tweet Cleaning](images/tweet_cleaning.png)`
+`![Tweet Cleaning]("C:\Users\thekr\Pictures\Screenshots\Screenshot 2025-11-05 111626.png")`
 
 ---
 
@@ -102,7 +103,7 @@ This dictionary stores how often each word appears in positive vs. negative twee
 
 ### 7. Word Sentiment Scatter Plot  
 *(Add scatter plot here)*  
-`![Word Sentiment Plot](images/word_sentiment.png)`
+`![Word Sentiment Plot]("C:\Users\thekr\OneDrive\Documents\program\python\tweets\logistic regression outputs\scatter plot.png")`
 
 A log-scale scatter plot that compares positive and negative word counts:
 - Words like *happy* and *love* cluster near the **positive** side  
@@ -162,13 +163,6 @@ tweets/
 * The charts use logarithmic scales to make differences clearer.
 * You can adjust the `keys` list in the script to analyze specific words.
 
----
-
-### 🖼️ Suggested Places for Images:
-
-* `images/pie_chart.png` → Sentiment distribution
-* `images/tweet_cleaning.png` → Cleaning demo
-* `images/word_sentiment.png` → Scatter plot
 
 ---
 
@@ -179,5 +173,3 @@ tweets/
 
 ---
 
-Would you like me to format this README with your GitHub repo name and short project tagline at the top (like a header and short description line)? It’ll make it look even more polished for your profile.
-```
