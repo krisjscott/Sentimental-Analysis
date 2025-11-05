@@ -61,18 +61,6 @@ I’m so done with today 😒                  ← negative (red)
 
 Demonstrates how a tweet is preprocessed.
 
-**Before:**
-```
-
-RT @happy_user: Love this! 😍 [https://t.co/xyz123](https://t.co/xyz123)
-
-```
-
-**After:**
-```
-
-Love this! 😍
-
 ```
 
 <img width="862" height="42" alt="Screenshot 2025-11-05 111626" src="https://github.com/user-attachments/assets/67782fe3-1fb1-4945-a632-d5021024aa94" />
