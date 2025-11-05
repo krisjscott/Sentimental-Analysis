@@ -1,102 +1,88 @@
 import nltk
-from nltk.corpus import twitter_samples
-from nltk.tokenize import word_tokenize
-import matplotlib.pyplot as plt
+import random    
+import re
+import string
 import numpy as np
-import re                                  # library for regular expression operations
-import string                              # for string operations
+import matplotlib.pyplot as plt
+from nltk.corpus import twitter_samples, stopwords
+from nltk.tokenize import TweetTokenizer
 
-from nltk.corpus import stopwords          # module for stop words that come with NLTK
-from nltk.stem import PorterStemmer        # module for stemming
-from nltk.tokenize import TweetTokenizer   # module for tokenizing strings
+nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('twitter_samples')
 
-all_positive_tweets = twitter_samples.strings('positive_tweets.json')
-all_negative_tweets = twitter_samples.strings('negative_tweets.json')
+all_pos = twitter_samples.strings('positive_tweets.json')
+all_neg = twitter_samples.strings('negative_tweets.json')
 
-tweets = all_positive_tweets + all_negative_tweets ## Concatenate the lists. 
-labels = np.append(np.ones((len(all_positive_tweets),1)), np.zeros((len(all_negative_tweets),1)), axis = 0)
+tweets = all_pos + all_neg
+labels = np.append(np.ones((len(all_pos), 1)), np.zeros((len(all_neg), 1)), axis=0)
 
-# split the data into two pieces, one for training and one for testing (validation set) 
-train_pos  = all_positive_tweets[:4000]
-train_neg  = all_negative_tweets[:4000]
+train_pos, train_neg = all_pos[:4000], all_neg[:4000]
+train_x = train_pos + train_neg
+print("Number of tweets:", len(train_x))
 
-train_x = train_pos + train_neg 
-
-print("Number of tweets: ", len(train_x))
-fig = plt.figure(figsize=(5, 5))
-
-# labels for the two classes
-labels = 'Positives', 'Negative'
-
-# Sizes for each slide
-sizes = [len(all_positive_tweets), len(all_negative_tweets)] 
-
-# Declare pie chart, where the slices will be ordered and plotted counter-clockwise:
-plt.pie(sizes, labels=labels, autopct='%1.1f%%',
-        shadow=True, startangle=90)
-
-# Equal aspect ratio ensures that pie is drawn as a circle.
-plt.axis('equal')  
-
-# Display the chart
+plt.figure(figsize=(5, 5))
+plt.pie(
+    [len(all_pos), len(all_neg)],
+    labels=['Positive', 'Negative'],
+    autopct='%1.1f%%',
+    shadow=True,
+    startangle=90
+)
+plt.axis('equal')
 plt.show()
 
-print('\033[92m' + all_positive_tweets[random.randint(0,5000)])
+print('\033[92m' + all_pos[random.randint(0, 5000)])
+print('\033[91m' + all_neg[random.randint(0, 5000)])
 
-# print negative in red
-print('\033[91m' + all_negative_tweets[random.randint(0,5000)])
+tweet = all_pos[random.randint(0, 5000)]
+print('\033[92m' + tweet + '\033[94m')
 
-nltk.download('stopwords')
+tweet = re.sub(r'^RT[\s]+', '', tweet)
+tweet = re.sub(r'https?://[^\s\n\r]+', '', tweet)
+tweet = re.sub(r'#', '', tweet)
+print(tweet)
 
-print('\033[92m' + tweet)
-print('\033[94m')
+tokenizer = TweetTokenizer(preserve_case=False, strip_handles=True, reduce_len=True)
+tokens = tokenizer.tokenize(tweet)
+print('\nTokenized:', tokens)
 
-# remove old style retweet text "RT"
-tweet2 = re.sub(r'^RT[\s]+', '', tweet)
+stop_words = stopwords.words('english')
+clean_tweet = [w for w in tokens if w not in stop_words and w not in string.punctuation]
+print('Cleaned tokens:', clean_tweet)
 
-# remove hyperlinks
-tweet2 = re.sub(r'https?://[^\s\n\r]+', '', tweet2)
+def build_freqs(tweets, labels):
+    freqs = {}
+    for y, tweet in zip(labels, tweets):
+        for word in TweetTokenizer(preserve_case=False, strip_handles=True).tokenize(tweet):
+            pair = (word, int(y))
+            freqs[pair] = freqs.get(pair, 0) + 1
+    return freqs
 
-# remove hashtags
-# only removing the hash # sign from the word
-tweet2 = re.sub(r'#', '', tweet2)
+labels = np.append(np.ones(len(all_pos)), np.zeros(len(all_neg)))
+freqs = build_freqs(tweets, labels)
 
-print(tweet2)
-print()
-print('\033[92m' + tweet2)
-print('\033[94m')
+print(f'type(freqs) = {type(freqs)}')
+print(f'len(freqs) = {len(freqs)}')
 
-# instantiate tokenizer class
-tokenizer = TweetTokenizer(preserve_case=False, strip_handles=True,
-                               reduce_len=True)
+keys = ['happi', 'merri', 'nice', 'good', 'bad', 'sad', 'mad', 'best', 'pretti',
+        '❤', ':)', ':(', '😒', '😬', '😄', '😍', '♛', 'song', 'idea', 'power', 'play', 'magnific']
 
-# tokenize tweets
-tweet_tokens = tokenizer.tokenize(tweet2)
+data = []
+for word in keys:
+    pos = freqs.get((word, 1), 0)
+    neg = freqs.get((word, 0), 0)
+    data.append([word, pos, neg])
 
-print()
-print('Tokenized string:')
-print(tweet_tokens)
-stopwords_english = stopwords.words('english') 
+fig, ax = plt.subplots(figsize=(8, 8))
+x = np.log([d[1] + 1 for d in data])
+y = np.log([d[2] + 1 for d in data])
+ax.scatter(x, y)
+plt.xlabel("Log Positive count")
+plt.ylabel("Log Negative count")
 
-print('Stop words\n')
-print(stopwords_english)
+for i, (word, _, _) in enumerate(data):
+    ax.annotate(word, (x[i], y[i]), fontsize=12)
 
-print('\nPunctuation\n')
-print(string.punctuation)
-
-print()
-print('\033[92m')
-print(tweet_tokens)
-print('\033[94m')
-
-tweets_clean = []
-
-for word in tweet_tokens: # Go through every word in your tokens list
-    if (word not in stopwords_english and  # remove stopwords
-        word not in string.punctuation):  # remove punctuation
-        tweets_clean.append(word)
-
-print('removed stop words and punctuation:')
-print(tweets_clean)
+ax.plot([0, 9], [0, 9], color='red')
+plt.show()
