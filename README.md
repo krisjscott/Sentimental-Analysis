@@ -64,4 +64,4 @@ python w2_unittest.py            # run tests
 
 ## About
 
-This branch focuses on applying a classical machine learning method (Naive Bayes) for sentiment classification. It's designed to be clear, replicable and modular — ideal for exploration, teaching, or extension into more advanced methods later.
+This branch uses a classic machine learning approach, Naive Bayes, to build a simple and practical sentiment analysis model. The code is written to be easy to follow, easy to reuse, and easy to build on. It’s a good fit if you're learning how text classification works, experimenting with your own ideas, or planning to extend the project with more advanced models later.
