@@ -1,4 +1,4 @@
-# Sentimental-Analysis (Naive_Bayes Branch)
+# 🔍 Sentimental-Analysis (Naive_Bayes Branch)
 
 This branch implements a sentiment analysis pipeline using the Naive Bayes algorithm. It covers feature creation, model training, and unit testing.
 
