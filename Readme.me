@@ -1,0 +1,64 @@
+---
+
+# 🌍 Word Embeddings Analogy & PCA Visualization
+
+This project explores how word embeddings capture relationships between words. You can test analogies like **Athens : Greece :: Cairo : ?**, calculate similarities, and plot words using PCA for a quick visual feel of how they cluster.
+
+## 📦 What’s Inside
+
+* Load a subset of word vectors.
+* Measure **cosine similarity** and **euclidean distance** between word pairs.
+* Solve analogy tasks using simple vector arithmetic.
+* Measure accuracy against a small capitals dataset.
+* Plot selected words in 2D using **PCA**.
+* Nicely annotated scatter plot to help see how words group together.
+
+## 🚀 How It Works
+
+1. The script loads embeddings and a capitals dataset.
+2. It compares words like **king** and **queen** using similarity functions.
+3. It predicts missing countries based on vector relationships.
+4. It computes overall accuracy across the dataset.
+5. It reduces embeddings to 2D using PCA and plots them.
+
+## 📊 PCA Plot
+
+The PCA plot helps you understand how words like *oil*, *gas*, *happy*, *sad*, *city*, and *country* relate in the embedding space.
+
+## ▶️ Run the Script
+
+Make sure your folder structure contains:
+
+```
+/data
+   ├── capitals.txt
+   └── word_embeddings_subset.p
+```
+
+Then run:
+
+```bash
+python main.py
+```
+
+A scatter plot window will appear showing the PCA projection of selected words.
+
+## 🧠 Requirements
+
+* Python 3.x
+* NumPy
+* Pandas
+* Matplotlib
+
+Install them using:
+
+```bash
+pip install numpy pandas matplotlib
+```
+
+## 🎯 Goal
+
+The goal of this project is to show how much structure hides inside word vectors and how simple math can give surprisingly good results.
+
+---
+
